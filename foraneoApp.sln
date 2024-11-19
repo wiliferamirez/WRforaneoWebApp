@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp", "foraneoApp\foraneoApp.csproj", "{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

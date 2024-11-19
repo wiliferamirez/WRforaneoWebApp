@@ -2,6 +2,12 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp", "foraneoApp\foraneoApp.csproj", "{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp.DataAccess", "foraneoApp.DataAccess\foraneoApp.DataAccess.csproj", "{98326980-B1BF-4AB7-9295-0577A2FE1881}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp.Models", "foraneoApp.Models\foraneoApp.Models.csproj", "{CBB47DAB-2ECF-44B4-8F70-6F4850AC3EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp.Utilities", "foraneoApp.Utilities\foraneoApp.Utilities.csproj", "{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +18,17 @@ Global
 		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DD38BB7-29F7-4C9B-8A3F-75735299A98D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98326980-B1BF-4AB7-9295-0577A2FE1881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98326980-B1BF-4AB7-9295-0577A2FE1881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98326980-B1BF-4AB7-9295-0577A2FE1881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98326980-B1BF-4AB7-9295-0577A2FE1881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB47DAB-2ECF-44B4-8F70-6F4850AC3EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB47DAB-2ECF-44B4-8F70-6F4850AC3EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB47DAB-2ECF-44B4-8F70-6F4850AC3EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB47DAB-2ECF-44B4-8F70-6F4850AC3EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

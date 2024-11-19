@@ -31,4 +31,10 @@
       <Folder Include="Areas\Client\Views\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\foraneoApp.DataAccess\foraneoApp.DataAccess.csproj" />
+      <ProjectReference Include="..\foraneoApp.Models\foraneoApp.Models.csproj" />
+      <ProjectReference Include="..\foraneoApp.Utilities\foraneoApp.Utilities.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -11,4 +11,9 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\foraneoApp.Models\foraneoApp.Models.csproj" />
+      <ProjectReference Include="..\foraneoApp.Utilities\foraneoApp.Utilities.csproj" />
+    </ItemGroup>
+
 </Project>

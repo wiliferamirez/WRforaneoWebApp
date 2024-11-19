@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
-namespace foraneoApp.Data;
+namespace foraneoApp.DataAccess.Data;
 
 public class ApplicationDbContext : IdentityDbContext
 {

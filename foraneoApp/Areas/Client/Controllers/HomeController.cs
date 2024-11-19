@@ -1,9 +1,9 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using foraneoApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace foraneoApp.Controllers;
-
+namespace foraneoApp.Areas.Client.Controllers;
+[Area("Client")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

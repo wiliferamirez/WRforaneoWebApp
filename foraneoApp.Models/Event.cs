@@ -21,6 +21,7 @@ public class Event
     [DataType(dataType: DataType.Date)]
     public DateTime startDate { get; set; }
     
+    public DateTime creationDate { get; set; }
     
     public string host { get; set; }
     

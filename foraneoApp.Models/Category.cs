@@ -10,5 +10,6 @@ public class Category
     [Display(Name = "Category Name")]
     public string categoryName { get; set; }
     [Display(Name = "Visualization sort")]
+    [Range(1, 10, ErrorMessage = "Visualization sort must be between 1 and 1    ")]
     public int? Order { get; set; }
 }

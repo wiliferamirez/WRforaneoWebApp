@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using foraneoApp.DataAccess.Data;
+using foraneoApp.DataAccess.Data.Repository;
+using foraneoApp.DataAccess.Data.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+//Add workcontainer to IworkContainer 
+builder.Services.AddScoped<IWorkContainer, WorkContainer>();
 
 var app = builder.Build();
 

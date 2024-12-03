@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace foraneoApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class Categories : Controller
+    public class CategoriesController : Controller
     {
         private readonly IWorkContainer _workContainer;
 
-        public Categories(IWorkContainer workContainer)
+        public CategoriesController(IWorkContainer workContainer)
         {
             _workContainer = workContainer;
         }

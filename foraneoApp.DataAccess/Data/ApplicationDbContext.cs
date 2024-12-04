@@ -12,4 +12,5 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Slider> Slider { get; set; }
 }

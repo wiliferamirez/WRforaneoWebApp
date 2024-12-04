@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using foraneoApp.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using foraneoApp.DataAccess.Data;
 namespace foraneoApp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241204205420_EventMigration")]
+    partial class EventMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -241,7 +244,7 @@ namespace foraneoApp.DataAccess.Migrations
 
                     b.HasKey("categoryId");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("foraneoApp.Models.Event", b =>
@@ -283,7 +286,7 @@ namespace foraneoApp.DataAccess.Migrations
 
                     b.HasIndex("categoryId");
 
-                    b.ToTable("Events", (string)null);
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("foraneoApp.Models.Slider", b =>
@@ -308,7 +311,7 @@ namespace foraneoApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slider", (string)null);
+                    b.ToTable("Slider");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

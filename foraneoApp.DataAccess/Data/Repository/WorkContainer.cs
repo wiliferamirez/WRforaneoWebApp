@@ -10,10 +10,12 @@ public class WorkContainer : IWorkContainer
     {
         _db = db;
         Category = new CategoryRepository(_db);
-        
+        Slider = new SlideryRepository(_db);
+
     }
 
     public ICategoryRepository Category { get; private set; }
+    public ISliderRepository Slider { get; private set; }
 
     public void Save()
     {

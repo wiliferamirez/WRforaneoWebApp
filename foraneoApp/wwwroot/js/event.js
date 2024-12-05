@@ -5,9 +5,9 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    dataTable = $("#tblCategory").DataTable({
+    dataTable = $("#tblEvent").DataTable({
         ajax: {
-            url: '/Admin/Categories/GetAllCategories',
+            url: '/Admin/Events/GetAllEvents',
             type: 'GET',
             datatype: 'json',
             error: function(xhr, status, error) {
@@ -16,15 +16,20 @@ function loadDataTable() {
             }
         },
         columns: [
-            { data: 'categoryId', width: '5%' },   
-            { data: 'categoryName', width: '40%' },  
-            { data: 'order', width: '10%' },
+            { data: 'eventId', width: '5%' },
+            { data: 'categories.name', width: '5%' },
+            { data: 'title', width: '10%' },
+            { data: 'description', width: '10%' },
+            { data: 'urlImage', width: '10%' },
+            { data: 'location', width: '10%' },
+            { data: 'startDate', width: '10%' },
+            { data: 'creationDate', width: '10%' },
             {
-                data: 'categoryId',
-                width: '40%',
+                data: 'eventId',
+                width: '30%',
                 render: function (data) {
                     return `<div class="text-center">
-                        <a href="/Admin/Categories/Edit/${data}" class="btn btn-primary mx-1">
+                        <a href="/Admin/Events/Edit/${data}" class="btn btn-primary mx-1">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                         &nbsp;

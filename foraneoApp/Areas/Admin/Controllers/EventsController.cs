@@ -18,6 +18,12 @@ namespace foraneoApp.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+        
         
         #region APICalls
 

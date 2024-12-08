@@ -23,10 +23,18 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
 
     public IEnumerable<SelectListItem> GetCategoriesList()
     {
-        return _db.Categories.Select(i => new SelectListItem()
+        var categories = _db.Categories.Select(i => new SelectListItem
         {
             Text = i.categoryName,
             Value = i.categoryId.ToString()
-        });
+        }).ToList();
+
+        Console.WriteLine("Categories for dropdown:");
+        foreach (var category in categories)
+        {
+            Console.WriteLine($"Text: {category.Text}, Value: {category.Value}");
+        }
+
+        return categories;
     }
 }

@@ -17,7 +17,7 @@ function loadDataTable() {
         },
         columns: [
             { data: 'eventId', width: '5%' },
-            { data: 'categories.name', width: '5%' },
+            { data: 'categoryName', width: '5%' },
             { data: 'title', width: '10%' },
             { data: 'description', width: '10%' },
             { data: 'location', width: '10%' },

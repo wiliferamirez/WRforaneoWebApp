@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace foraneoApp.Models;
 
@@ -17,10 +18,12 @@ public class Event
     [StringLength(600, ErrorMessage = "Event description cannot exceed 600 characters")]
     [Display(Name = "Event Description")]
     public string description { get; set; }
+    
+    [Required(ErrorMessage = "Please select a category")]
     public int categoryId { get; set; }
 
     [ForeignKey(nameof(categoryId))]
-    [Required(ErrorMessage = "Please select a category")]
+    [ValidateNever]
     public Category category { get; set; }
 
     [Required(ErrorMessage = "Please enter the location of the event")]

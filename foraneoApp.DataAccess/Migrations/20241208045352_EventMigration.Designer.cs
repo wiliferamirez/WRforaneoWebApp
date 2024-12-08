@@ -11,8 +11,8 @@ using foraneoApp.DataAccess.Data;
 namespace foraneoApp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241208012134_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20241208045352_EventMigration")]
+    partial class EventMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

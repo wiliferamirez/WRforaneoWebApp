@@ -1,4 +1,6 @@
-﻿@model foraneoApp.Models.ViewModels.EventVM;
+﻿@using foraneoApp.Models.ViewModels
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model foraneoApp.Models.ViewModels.EventVM;
 
 
 @{
@@ -27,14 +29,19 @@ ViewData["Title"] = "Create Event";
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label>Category</label>
+                    <label for = "category">Category</label>
                 </div>
                 <div class="col-8">
-                    @Html.DropDownListFor(m => m.Event.categoryId, Model.CategoryList, "-- Select Category --",
-                        new { @class = "form-control" })
+                    @Html.DropDownListFor(
+                    m => m.Event.categoryId,
+                    new SelectList(Model.CategoryList, "Value", "Text", Model.Event.categoryId),
+                    "-- Select Category --",
+                    new { @class = "form-control" }
+                    )
                     <span asp-validation-for="Event.categoryId" class="text-danger"></span>
                 </div>
             </div>
+
             
             <br/>
             
@@ -75,7 +82,7 @@ ViewData["Title"] = "Create Event";
                     </label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Event.startDate" class="form-control" type="date" placeholder="Set event start date/time"/>
+                    <input asp-for="Event.startDate" class="form-control" type="datetime-local" placeholder="Set event start date/time"/>
                     <span asp-validation-for="Event.startDate" class="text-danger"></span>
                 </div>
                 

@@ -27,7 +27,7 @@ namespace foraneoApp.Areas.Admin.Controllers
                 Event = new foraneoApp.Models.Event(),
                 CategoryList = _workContainer.Category.GetCategoriesList()
             };
-            return View();
+            return View(eventVM);
         }
         
         

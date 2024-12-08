@@ -43,7 +43,7 @@ function loadDataTable() {
 }
 
 function deleteCategory(id) {
-    confirmDelete(`/Admin/Categories/Delete/${id}`, dataTable);
+    confirmDelete(`/Admin/Events/Delete/${id}`, dataTable);
 }
 
 $(document).on('submit', '#categoryForm', function (e) {

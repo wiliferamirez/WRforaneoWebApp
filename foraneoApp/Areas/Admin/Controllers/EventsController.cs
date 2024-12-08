@@ -59,11 +59,31 @@ namespace foraneoApp.Areas.Admin.Controllers
             return View(eventVm);
         }
         
-
-
-
-
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(EventVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                _workContainer.Event.Update(model.Event); 
+                _workContainer.Save();
+            }
+            return RedirectToAction("Index");  
+        }
+        
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var objfromDB = _workContainer.Event.Get(id);
+            if (objfromDB == null)
+            {
+                return Json(new { success = false, message = "Event not found" });
+            }
+            _workContainer.Event.Remove(objfromDB);
+            _workContainer.Save();
+            return Json(new { success = true, message = "Event deleted successfully" });
+        }
+        
         
         
         #region APICalls

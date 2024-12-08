@@ -10,6 +10,7 @@ ViewData["Title"] = "Create Event";
 <br/>
 <h3 class="text-center">Create Event</h3>
 <form method="POST" asp-action="Create">
+    <input type="hidden" asp-for="Event.eventId"> </input>
     <div class="row px-2 offset-1 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="col-10 mt-4 mx-auto">
@@ -24,27 +25,27 @@ ViewData["Title"] = "Create Event";
                     <span asp-validation-for="Event.title" class="text-danger"></span>
                 </div>
             </div>
-            
+
             <br/>
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label for = "category">Category</label>
+                    <label for="category">Category</label>
                 </div>
                 <div class="col-8">
                     @Html.DropDownListFor(
-                    m => m.Event.categoryId,
-                    new SelectList(Model.CategoryList, "Value", "Text", Model.Event.categoryId),
-                    "-- Select Category --",
-                    new { @class = "form-control" }
+                        m => m.Event.categoryId,
+                        new SelectList(Model.CategoryList, "Value", "Text", Model.Event.categoryId),
+                        "-- Select Category --",
+                        new { @class = "form-control" }
                     )
                     <span asp-validation-for="Event.categoryId" class="text-danger"></span>
                 </div>
             </div>
 
-            
+
             <br/>
-            
+
             <div class="form-group row ">
                 <div class="col-4">
                     <label class="col-form-label">
@@ -56,7 +57,7 @@ ViewData["Title"] = "Create Event";
                     <span asp-validation-for="Event.description" class="text-danger"></span>
                 </div>
             </div>
-            
+
             <br/>
 
             <br/>
@@ -85,9 +86,9 @@ ViewData["Title"] = "Create Event";
                     <input asp-for="Event.startDate" class="form-control" type="datetime-local" placeholder="Set event start date/time"/>
                     <span asp-validation-for="Event.startDate" class="text-danger"></span>
                 </div>
-                
+
             </div>
-            
+
         </div>
         <br/>
         <div class="form-group row">

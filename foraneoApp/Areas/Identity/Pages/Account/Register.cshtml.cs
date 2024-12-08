@@ -107,7 +107,7 @@ namespace foraneoApp.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "Name is required")]
             [StringLength(50, ErrorMessage = "Nome Invalid", MinimumLength = 3)]
             [Display(Name = "Name")]
-            public string UserName { get; set; }
+            public string UserFirstName { get; set; }
     
             [Required(ErrorMessage = "Last name is required")]
             [StringLength(50, ErrorMessage = "Last name Invalid", MinimumLength = 3)]
@@ -151,7 +151,7 @@ namespace foraneoApp.Areas.Identity.Pages.Account
                 var user = CreateUser();
                 
                 user.UserCedula = Input.UserCedula;
-                user.UserName = Input.UserName;
+                user.UserFirstName = Input.UserFirstName;
                 user.UserLastName = Input.UserLastName;
                 user.UserProvince = Input.UserProvince;
                 user.UserBirthDate = Input.UserBirthDate;

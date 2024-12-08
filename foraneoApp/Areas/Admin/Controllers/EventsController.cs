@@ -1,4 +1,5 @@
 using foraneoApp.DataAccess.Data.Repository.IRepository;
+using foraneoApp.Models;
 using foraneoApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -35,29 +36,29 @@ namespace foraneoApp.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(EventVM model)
         {
-            // Log categoryId
-            Console.WriteLine($"Submitted categoryId: {model.Event.categoryId}");
-
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    Console.WriteLine($"Error: {error.ErrorMessage}");
-                }
-
-                model.CategoryList = _workContainer.Category.GetCategoriesList(); 
-                return View(model);  
+                _workContainer.Event.Add(model.Event); 
+                _workContainer.Save();
             }
-
-
-            _workContainer.Event.Add(model.Event); 
-            _workContainer.Save();
-
-
             return RedirectToAction("Index");  
         }
-
+        
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            EventVM eventVm = new EventVM()
+            {
+                Event = new foraneoApp.Models.Event(),
+                CategoryList = _workContainer.Category.GetCategoriesList() 
+            };
+            if(id != null)
+            {
+                eventVm.Event = _workContainer.Event.Get(id.Value);
+            }
+            return View(eventVm);
+        }
+        
 
 
 

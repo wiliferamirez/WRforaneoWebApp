@@ -49,6 +49,6 @@ function deleteCategory(id) {
 $(document).on('submit', '#categoryForm', function (e) {
     e.preventDefault();
     submitForm(this, function (response) {
-        window.location.href = '/Admin/Categories/Index';
+        window.location.href = '/Admin/Events/Index';
     });
 });

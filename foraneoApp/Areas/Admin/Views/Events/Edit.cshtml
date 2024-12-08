@@ -1,0 +1,104 @@
+﻿@using foraneoApp.Models.ViewModels
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model foraneoApp.Models.ViewModels.EventVM;
+
+
+@{
+ViewData["Title"] = "Edit Event";
+}
+<br/>
+<br/>
+<h3 class="text-center">Edit Event</h3>
+<form method="POST" asp-action="Edit">
+    <div class="row px-2 offset-1 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-10 mt-4 mx-auto">
+            <div class="form-group row ">
+                <div class="col-4">
+                    <label class="col-form-label">
+                        <label asp-for="Event.title"></label>
+                    </label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Event.title" class="form-control" placeholder="Enter title event"/>
+                    <span asp-validation-for="Event.title" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <br/>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label for = "category">Category</label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(
+                    m => m.Event.categoryId,
+                    new SelectList(Model.CategoryList, "Value", "Text", Model.Event.categoryId),
+                    "-- Select Category --",
+                    new { @class = "form-control" }
+                    )
+                    <span asp-validation-for="Event.categoryId" class="text-danger"></span>
+                </div>
+            </div>
+
+            
+            <br/>
+            
+            <div class="form-group row ">
+                <div class="col-4">
+                    <label class="col-form-label">
+                        <label asp-for="Event.description"></label>
+                    </label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Event.description" class="form-control" placeholder="Enter event description" ></textarea>
+                    <span asp-validation-for="Event.description" class="text-danger"></span>
+                </div>
+            </div>
+            
+            <br/>
+
+            <br/>
+
+            <div class="form-group row ">
+                <div class="col-4">
+                    <label class="col-form-label">
+                        <label asp-for="Event.location"></label>
+                    </label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Event.location" class="form-control" placeholder="Enter location"/>
+                    <span asp-validation-for="Event.location" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label class="col-form-label">
+                        <label asp-for="Event.startDate"></label>
+                    </label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Event.startDate" class="form-control" type="datetime-local" placeholder="Set event start date/time"/>
+                    <span asp-validation-for="Event.startDate" class="text-danger"></span>
+                </div>
+                
+            </div>
+            
+        </div>
+        <br/>
+
+        <div class="row mb-4" >
+            <div class="col">
+                <button type="submit" class="btn btn-primary form-control">Save event</button>
+            </div>
+            &nbsp;
+            <div class="col">
+                <a asp-action="Index" class="btn btn-success form-control">Back</a>
+            </div>
+        </div>
+    </div>
+</form>

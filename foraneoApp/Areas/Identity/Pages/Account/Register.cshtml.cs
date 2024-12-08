@@ -98,46 +98,43 @@ namespace foraneoApp.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-        }
-        
-        //New Fields
-        
-        [Required(ErrorMessage = "Cedula is required")]
-        [StringLength(10, ErrorMessage = "Céula Inavalid", MinimumLength = 10)]
-        [Display(Name = "Cedula")]
-        public string UserCedula { get; set; }
+            
+            [Required(ErrorMessage = "Cedula is required")]
+            [StringLength(10, ErrorMessage = "Céula Inavalid", MinimumLength = 10)]
+            [Display(Name = "Cedula")]
+            public string UserCedula { get; set; }
     
-        [Required(ErrorMessage = "Name is required")]
-        [StringLength(50, ErrorMessage = "Nome Invalid", MinimumLength = 3)]
-        [Display(Name = "Name")]
-        public string UserName { get; set; }
+            [Required(ErrorMessage = "Name is required")]
+            [StringLength(50, ErrorMessage = "Nome Invalid", MinimumLength = 3)]
+            [Display(Name = "Name")]
+            public string UserName { get; set; }
     
-        [Required(ErrorMessage = "Last name is required")]
-        [StringLength(50, ErrorMessage = "Last name Invalid", MinimumLength = 3)]
-        [Display(Name = "Last name")]
-        public string UserLastName { get; set; }
+            [Required(ErrorMessage = "Last name is required")]
+            [StringLength(50, ErrorMessage = "Last name Invalid", MinimumLength = 3)]
+            [Display(Name = "Last name")]
+            public string UserLastName { get; set; }
     
-        [Required(ErrorMessage = "Email is required")]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email")]
-        public string UserEmail { get; set; }
+            [Required(ErrorMessage = "Provice is required")]
+            [Display(Name = "Provice")]
+            public string UserProvince { get; set; }
     
-        [Required(ErrorMessage = "Provice is required")]
-        [Display(Name = "Provice")]
-        public string UserProvince { get; set; }
+            [Required(ErrorMessage = "Program is required")]
+            [Display(Name = "Program")]
+            public string UserProgram { get; set; }
     
-        [Required(ErrorMessage = "Program is required")]
-        [Display(Name = "Program")]
-        public string UserProgram { get; set; }
+            [Required(ErrorMessage = "Birthday is required")]
+            [DataType(DataType.Date)]
+            [Display(Name = "Birthday")]
+            public DateOnly UserBirthDate { get; set; }
     
-        [Required(ErrorMessage = "Birthday is required")]
-        [DataType(DataType.Date)]
-        [Display(Name = "Birthday")]
-        public DateTime UserBirthDate { get; set; }
-    
-        [Display(Name = "Creation Date")]
-        public DateTime UserCreatedAt { get; set; } = DateTime.Now;
+            [Display(Name = "Creation Date")]
+            public DateTime UserCreatedAt { get; set; } = DateTime.Now;
 
+            
+        }
+
+        
+ 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -152,7 +149,15 @@ namespace foraneoApp.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
-
+                
+                user.UserCedula = Input.UserCedula;
+                user.UserName = Input.UserName;
+                user.UserLastName = Input.UserLastName;
+                user.UserProvince = Input.UserProvince;
+                user.UserBirthDate = Input.UserBirthDate;
+                user.UserCreatedAt = DateTime.Now;
+                user.UserProgram = Input.UserProgram;
+                
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);

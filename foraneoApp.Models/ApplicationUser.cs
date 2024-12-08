@@ -12,17 +12,12 @@ public class ApplicationUser : IdentityUser
     [Required(ErrorMessage = "Name is required")]
     [StringLength(50, ErrorMessage = "Nome Invalid", MinimumLength = 3)]
     [Display(Name = "Name")]
-    public string UserName { get; set; }
+    public string UserFirstName { get; set; }
     
     [Required(ErrorMessage = "Last name is required")]
     [StringLength(50, ErrorMessage = "Last name Invalid", MinimumLength = 3)]
     [Display(Name = "Last name")]
     public string UserLastName { get; set; }
-    
-    [Required(ErrorMessage = "Email is required")]
-    [DataType(DataType.EmailAddress)]
-    [Display(Name = "Email")]
-    public string UserEmail { get; set; }
     
     [Required(ErrorMessage = "Provice is required")]
     [Display(Name = "Provice")]
@@ -35,7 +30,7 @@ public class ApplicationUser : IdentityUser
     [Required(ErrorMessage = "Birthday is required")]
     [DataType(DataType.Date)]
     [Display(Name = "Birthday")]
-    public DateTime UserBirthDate { get; set; }
+    public DateOnly UserBirthDate { get; set; }
     
     [Display(Name = "Creation Date")]
     public DateTime UserCreatedAt { get; set; } = DateTime.Now;

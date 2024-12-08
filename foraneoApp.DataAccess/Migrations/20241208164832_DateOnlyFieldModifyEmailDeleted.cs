@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace foraneoApp.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class EventMigration : Migration
+    public partial class DateOnlyFieldModifyEmailDeleted : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -30,7 +30,13 @@ namespace foraneoApp.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
-                    UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
+                    UserCedula = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
+                    UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: false),
+                    UserLastName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    UserProvince = table.Column<string>(type: "TEXT", nullable: false),
+                    UserProgram = table.Column<string>(type: "TEXT", nullable: false),
+                    UserBirthDate = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    UserCreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -125,8 +131,8 @@ namespace foraneoApp.DataAccess.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    ProviderKey = table.Column<string>(type: "TEXT", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<string>(type: "TEXT", nullable: false)
                 },
@@ -170,8 +176,8 @@ namespace foraneoApp.DataAccess.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "TEXT", nullable: false),
-                    LoginProvider = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     Value = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>

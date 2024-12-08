@@ -19,7 +19,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 // Updated Identity configuration
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => 
     {
-        options.SignIn.RequireConfirmedAccount = true;
+        options.User.RequireUniqueEmail = true;
         // Add additional Identity options as needed
     })
     .AddEntityFrameworkStores<ApplicationDbContext>()

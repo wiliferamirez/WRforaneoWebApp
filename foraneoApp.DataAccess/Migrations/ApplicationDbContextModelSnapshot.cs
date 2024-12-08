@@ -260,10 +260,6 @@ namespace foraneoApp.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("urlImage")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("eventId");
 
                     b.HasIndex("categoryId");

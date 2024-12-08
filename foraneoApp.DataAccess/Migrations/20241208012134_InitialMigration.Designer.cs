@@ -11,8 +11,8 @@ using foraneoApp.DataAccess.Data;
 namespace foraneoApp.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241206002638_InitialMigrationSqlite")]
-    partial class InitialMigrationSqlite
+    [Migration("20241208012134_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -261,10 +261,6 @@ namespace foraneoApp.DataAccess.Migrations
                     b.Property<string>("title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("urlImage")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("eventId");

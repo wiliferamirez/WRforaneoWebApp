@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace foraneoApp.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrationSqlite : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -193,7 +193,6 @@ namespace foraneoApp.DataAccess.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     title = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     description = table.Column<string>(type: "TEXT", maxLength: 600, nullable: false),
-                    urlImage = table.Column<string>(type: "TEXT", nullable: false),
                     categoryId = table.Column<int>(type: "INTEGER", nullable: false),
                     location = table.Column<string>(type: "TEXT", nullable: false),
                     startDate = table.Column<DateTime>(type: "TEXT", nullable: false),

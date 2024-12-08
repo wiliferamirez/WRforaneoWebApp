@@ -36,7 +36,6 @@ namespace foraneoApp.Areas.Admin.Controllers
                 eventId = c.eventId,
                 title = c.title,
                 description = c.description,
-                urlImage = c.urlImage,
                 location = c.location,
                 startDate = c.startDate,
                 creationDate = c.creationDate,

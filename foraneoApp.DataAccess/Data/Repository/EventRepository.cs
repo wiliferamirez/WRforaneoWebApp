@@ -17,7 +17,6 @@ public class EventRepository : Repository<Event>, IEventRepository
         var objectDB = _db.Events.FirstOrDefault(s => s.eventId == eventToUpdate.eventId);
         objectDB.title = eventToUpdate.title;
         objectDB.description = eventToUpdate.description;
-        objectDB.urlImage = eventToUpdate.urlImage;
         objectDB.categoryId = eventToUpdate.categoryId;
         objectDB.location = eventToUpdate.location;
         objectDB.startDate = eventToUpdate.startDate;

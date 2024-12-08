@@ -15,4 +15,5 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<Category> Categories { get; set; }
     public DbSet<Slider> Slider { get; set; }
     public DbSet<Event> Events { get; set; }
+    public DbSet<ApplicationUser> Users { get; set; } 
 }

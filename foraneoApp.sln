@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp.Models", "forane
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoApp.Utilities", "foraneoApp.Utilities\foraneoApp.Utilities.csproj", "{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "foraneoAppAPI", "foraneoAppAPI\foraneoAppAPI.csproj", "{E0FCAD22-D168-4DED-AF9C-6A3DB932B8A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FB5EB9A-15B0-45F9-859F-F0F4F361560B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0FCAD22-D168-4DED-AF9C-6A3DB932B8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0FCAD22-D168-4DED-AF9C-6A3DB932B8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0FCAD22-D168-4DED-AF9C-6A3DB932B8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0FCAD22-D168-4DED-AF9C-6A3DB932B8A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

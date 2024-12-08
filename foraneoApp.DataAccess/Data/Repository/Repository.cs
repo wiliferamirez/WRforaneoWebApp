@@ -24,9 +24,14 @@ public class Repository<T> : IRepository<T> where T : class
 
     public T Get(int id)
     {
-        return dbSet.Find(id);
-
+        var entity = dbSet.Find(id);
+        if (entity == null)
+        {
+            throw new KeyNotFoundException($"No entity of type {typeof(T).Name} with the ID {id} found.");
+        }
+        return entity;
     }
+
 
     public IEnumerable<T> GetAll(
         Expression<Func<T, bool>>? filter = null,

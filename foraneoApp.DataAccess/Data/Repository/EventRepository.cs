@@ -1,5 +1,6 @@
 using foraneoApp.DataAccess.Data.Repository.IRepository;
 using foraneoApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace foraneoApp.DataAccess.Data.Repository;
 
@@ -25,4 +26,27 @@ public class EventRepository : Repository<Event>, IEventRepository
  //       _db.SaveChanges();
     }
     
+    public Event Get(int id, string includeProperties = "")
+    {
+        IQueryable<Event> query = _db.Set<Event>();
+
+        // Apply eager loading if there are any navigation properties
+        foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+        {
+            query = query.Include(includeProperty);
+        }
+
+        return query.FirstOrDefault(e => e.eventId == id);
+    }
+    public IEnumerable<Event> GetAll(string includeProperties = "")
+    {
+        IQueryable<Event> query = _db.Set<Event>();
+
+        foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+        {
+            query = query.Include(includeProperty);
+        }
+
+        return query.ToList();
+    }
 }

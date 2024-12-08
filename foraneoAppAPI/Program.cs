@@ -1,9 +1,12 @@
+using System.Text;
 using foraneoApp.DataAccess.Data;
 using foraneoApp.DataAccess.Data.Repository;
 using foraneoApp.DataAccess.Data.Repository.IRepository;
 using foraneoApp.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using NuGet.Protocol.Core.Types;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,8 +29,27 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
 builder.Services.AddScoped<ISliderRepository, SlideryRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
-
 builder.Services.AddScoped<IWorkContainer, WorkContainer>();
+
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "foraneoAppAPI",
+            ValidAudience = "foraneoAppAPI",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("cangrejos")) 
+        };
+    });
 
 var app = builder.Build();
 
@@ -38,6 +60,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseHttpsRedirection();
 app.MapControllers();
 

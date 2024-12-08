@@ -1,5 +1,6 @@
 using foraneoApp.DataAccess.Data.Repository.IRepository;
 using foraneoApp.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace foraneoApp.DataAccess.Data.Repository;
 
@@ -19,5 +20,9 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
         
         _db.SaveChanges();
     }
-    
+
+    public IEnumerable<SelectListItem> GetCategoriesList()
+    {
+        throw new NotImplementedException();
+    }
 }

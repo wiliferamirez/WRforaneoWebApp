@@ -1,4 +1,5 @@
 using foraneoApp.DataAccess.Data.Repository.IRepository;
+using foraneoApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace foraneoApp.Areas.Admin.Controllers
@@ -21,6 +22,11 @@ namespace foraneoApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            EventVM eventVM = new EventVM()
+            {
+                Event = new foraneoApp.Models.Event(),
+                CategoryList = _workContainer.Category.GetCategoriesList()
+            };
             return View();
         }
         

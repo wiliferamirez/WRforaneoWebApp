@@ -23,6 +23,10 @@ public class CategoryRepository : Repository<Category>, ICategoryRepository
 
     public IEnumerable<SelectListItem> GetCategoriesList()
     {
-        throw new NotImplementedException();
+        return _db.Categories.Select(i => new SelectListItem()
+        {
+            Text = i.categoryName,
+            Value = i.categoryId.ToString()
+        });
     }
 }

@@ -6,7 +6,7 @@
     <Grid RowDefinitions=".30*, .70*">
         <Image Aspect="AspectFill" Source="students.jpg"/>
         <Grid BackgroundColor="#303030" Opacity=".7"/>
-        <Grid ColumnDefinitions=" *, *">
+        <Grid ColumnDefinitions="*">
             <Image Aspect="AspectFit"
                    HeightRequest="100"
                    Source="logoapp.webp"/>
@@ -74,6 +74,12 @@
                         HeightRequest="60"
                         Text="Login"
                         TextColor="White"/>
+
+                <Button Margin="0, 30, 0, 0"
+                        BackgroundColor="#ababab"
+                        HeightRequest="60"
+                        Text="Create an Account"
+                        TextColor="white"/>
 
             </VerticalStackLayout>
         </Grid>

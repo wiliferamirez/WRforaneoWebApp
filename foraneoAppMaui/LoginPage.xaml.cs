@@ -27,18 +27,18 @@ public partial class LoginPage : ContentPage
 
         if (success)
         {
-            // Navigate to the main page
-            await Navigation.PushAsync(new MainPage());
+
+            await Navigation.PushAsync(new WelcomePage(email));
         }
         else
         {
-            // Show error message
+
             await DisplayAlert("Login Failed", message, "OK");
         }
     }
     private async void OnRegisterTapped(object sender, EventArgs e)
     {
-        // Navigate to the registration page
+
         await Navigation.PushAsync(new RegisterPage(_authService));
     }
 }

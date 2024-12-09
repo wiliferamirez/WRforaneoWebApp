@@ -11,5 +11,11 @@
                Text="Hello, User!"
                HorizontalOptions="Center" />
         <Button Text="Logout" Clicked="OnLogoutClicked" />
+
+        <StackLayout Spacing="15" VerticalOptions="CenterAndExpand">
+            <Button Text="Categories" />
+            <Button Text="Events" />
+        </StackLayout>
+
     </StackLayout>
 </ContentPage>

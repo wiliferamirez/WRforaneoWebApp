@@ -1,0 +1,15 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="foraneoAppMaui.LoginPage">
+
+    <StackLayout Padding="20">
+        <Entry x:Name="EmailEntry" Placeholder="Email" />
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
+        <Button Text="Login" Clicked="OnLoginClicked" />
+        <Label Text="Don't have an account? Register">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnRegisterTapped" />
+            </Label.GestureRecognizers>
+        </Label>
+    </StackLayout>
+</ContentPage>

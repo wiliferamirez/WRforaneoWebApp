@@ -7,7 +7,7 @@ namespace foraneoAppMaui
         {
             InitializeComponent();
 
-            MainPage = new RegisterPage();
+            MainPage = new NavigationPage(new LoginPage(new AuthService(new HttpClient())));
         }
     }
 }

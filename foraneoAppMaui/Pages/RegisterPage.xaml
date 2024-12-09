@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="foraneoAppMaui.Pages.RegisterPage"
              Title="RegisterPage">
-    <Grid RowDefinitions=".2*, .8*">
+    <Grid RowDefinitions=".1*, .9*">
         <Image Aspect="AspectFill" Source="students.jpg"/>
         <Grid BackgroundColor="#303030" Opacity=".7"/>
         <Grid ColumnDefinitions="*">
-            <Image Aspect="AspectFit"
-                   HeightRequest="80"
-                   Source="logoapp.webp"/>
         </Grid>
         <Grid Grid.Row="1">
             <RoundRectangle Margin="-5, -30, -5, -2"
                             CornerRadius="30, 30, 0, 0"
                             Fill="White"/>
-            <ScrollView Margin="30, 0, 30, 0">
+            <VerticalStackLayout Margin="30, 0, 30, 0">
+                <Image Aspect="AspectFit"
+                   HeightRequest="30"
+                   Source="logoapp.webp"/>
                 <Label FontAttributes="Bold"
                        FontFamily="bold"
                        FontSize="Medium"
@@ -23,10 +23,55 @@
                        HorizontalTextAlignment="Center"
                        TextColor="#2D2D2D"/>
                 <Label FontFamily="medium"
-                       Text="Enter your data"
-                       TextColor="#A3A3A4"/>
-            </ScrollView>
-        </Grid>
+                       Text="Input your info"
+                       TextColor="#A3A3A4"
+                       HorizontalOptions="Center"/>
 
+                <Entry x:Name="CedulaEntry"
+                       Placeholder="Cedula"
+                       Margin="10, 50, 10, 10"
+                       VerticalOptions="Center"/>
+
+                <Entry x:Name="NameEntry"
+                       Placeholder="Nombre"
+                      Margin="10, 5, 10, 10"
+                      VerticalOptions="Center"/>
+
+                <Entry x:Name="LastNameEntry"
+                       Placeholder="Apellido"
+                      Margin="10, 5, 10, 10"
+                      VerticalOptions="Center"/>
+
+                <Entry x:Name="EmailEntry"
+                       Placeholder="Email Udla"
+                      Margin="10, 5, 10, 10"
+                      VerticalOptions="Center"/>
+
+                <Entry x:Name="ProvinceEntry"
+                       Placeholder="Provincia"
+                      Margin="10, 5, 10, 10"
+                      VerticalOptions="Center"/>
+
+                <Entry x:Name="ProgramEntry"
+                       Placeholder="Carrera"
+                      Margin="10, 5, 10, 10"
+                      VerticalOptions="Center"/>
+
+                <DatePicker x:Name="BirthdayPickerRegister"
+                            Margin="10, 5, 10, 10"/>
+
+                <Entry Placeholder="Password"
+                       IsPassword="True"
+                      Margin="10, 5, 10, 10"
+                      VerticalOptions="Center"/>
+
+                <Button Text="Register" 
+                        BackgroundColor="#373737"
+                        Margin="10, 5, 10, 10"
+                        HeightRequest="60"
+                        TextColor="white"/>
+
+            </VerticalStackLayout>
+        </Grid>
     </Grid>
 </ContentPage>

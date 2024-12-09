@@ -1,4 +1,5 @@
-﻿namespace foraneoAppMaui
+﻿using foraneoAppMaui.Pages;
+namespace foraneoAppMaui
 {
     public partial class App : Application
     {
@@ -6,7 +7,7 @@
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage(new AuthService(new HttpClient())));
+            MainPage = new LoginPage();
         }
     }
 }

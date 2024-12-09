@@ -13,6 +13,7 @@ namespace foraneoAppMaui
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("FontAwesome.otf", "Awesome");
                 });
             builder.Services.AddSingleton<HttpClient>();
             builder.Services.AddSingleton<AuthService>();

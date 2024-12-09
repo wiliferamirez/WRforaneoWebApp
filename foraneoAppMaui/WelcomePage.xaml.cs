@@ -19,5 +19,15 @@ namespace foraneoAppMaui
 
             await Navigation.PopToRootAsync(); 
         }
+        private async void OnCategoriesClicked(object sender, EventArgs e)
+        {
+
+            await Navigation.PushAsync(new Categories());
+        }
+        private async void OnEventsClicked(object sender, EventArgs e)
+        {
+
+            await Navigation.PushAsync(new Events());
+        }
     }
 }

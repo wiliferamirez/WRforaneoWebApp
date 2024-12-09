@@ -13,8 +13,8 @@
         <Button Text="Logout" Clicked="OnLogoutClicked" />
 
         <StackLayout Spacing="15" VerticalOptions="CenterAndExpand">
-            <Button Text="Categories" />
-            <Button Text="Events" />
+            <Button Text="Categories" Clicked="OnCategoriesClicked"/>
+            <Button Text="Events" Clicked="OnEventsClicked"/>
         </StackLayout>
 
     </StackLayout>

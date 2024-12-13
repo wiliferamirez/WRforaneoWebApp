@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace foraneoAppMaui.Models
 {
+
     public class RegisterRequest
     {
         public string Email { get; set; }

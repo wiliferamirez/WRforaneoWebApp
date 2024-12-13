@@ -41,6 +41,7 @@
                         </Image.Source>
                     </Image>
                     <Entry x:Name="EmailEntryLogin" 
+                           TextColor="Black"
                            Grid.Column="1"
                            Placeholder="Email"
                            Text="user@udla.edu.ec"
@@ -64,6 +65,7 @@
                         </Image.Source>
                     </Image>
                     <Entry x:Name="PasswordEntryLogin" 
+                           TextColor="Black"
                            Grid.Column="1"
                            Placeholder="Password"
                            IsPassword ="True"
@@ -76,7 +78,7 @@
                         HeightRequest="60"
                         Text="Login"
                         TextColor="White"
-                        Clicked="OnLoinClicked"/>
+                        Clicked="OnLoginClicked"/>
 
                 <Button x:Name="RegisterButtonLogin"
                         Margin="0, 30, 0, 0"

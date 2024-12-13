@@ -14,48 +14,72 @@ public class AuthService
         _httpClient = httpClient;
     }
 
-    // Register a new user
-    public async Task<bool> RegisterUserAsync(RegisterRequest request)
+    public async Task<(bool success, string message)> RegisterUserAsync(RegisterRequest request)
     {
         var json = JsonSerializer.Serialize(request);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var response = await _httpClient.PostAsync("https://localhost:7019/api/auth/register", content);
+        var response = await _httpClient.PostAsync("http://localhost:7019/api/Auth/test", content);
 
-        return response.IsSuccessStatusCode;
+        if (response.IsSuccessStatusCode)
+        {
+            return (true, "User registered successfully");
+        }
+
+        var errorResult = await response.Content.ReadAsStringAsync();
+        return (false, errorResult);
     }
 
-    // Login user and return user details or error message
+
     public async Task<(bool success, string message, string userId)> LoginUserAsync(LoginRequest request)
     {
         var json = JsonSerializer.Serialize(request);
         var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        var response = await _httpClient.PostAsync("https://localhost:7019/api/auth/login", content);
+        var response = await _httpClient.PostAsync("https://localhost:7019/api/Auth/login", content);
 
-        if (response.IsSuccessStatusCode)
+        if (!response.IsSuccessStatusCode)
         {
-            var result = await response.Content.ReadFromJsonAsync<JsonElement>();
+            return (false, "Login failed. Please check your credentials.", null);
+        }
 
-            // Use TryGetProperty to safely access the properties
-            string message = null;
+        var responseBody = await response.Content.ReadAsStringAsync();
+        try
+        {
+            var jsonResponse = JsonSerializer.Deserialize<JsonElement>(responseBody);
+
+            string message = "Login successful."; 
             string userId = null;
 
-            if (result.TryGetProperty("Message", out var messageProperty))
+            if (jsonResponse.TryGetProperty("Message", out var messageProperty))
             {
                 message = messageProperty.GetString();
             }
 
-            if (result.TryGetProperty("UserId", out var userIdProperty))
+            if (jsonResponse.TryGetProperty("UserId", out var userIdProperty))
             {
-                userId = userIdProperty.GetString();
+                userId = userIdProperty.GetString(); 
             }
 
-            return (true, message, userId);
+            return (true, message, userId); 
         }
+        catch (JsonException ex)
+        {
+            Console.WriteLine($"Error parsing response: {ex.Message}");
+            return (false, "Error parsing the response. Please try again.", null);
+        }
+    }
 
-        // If login fails, read the error message
-        var errorResult = await response.Content.ReadAsStringAsync();
-        return (false, errorResult, null);
+    public async Task<bool> TestApiConnectivityAsync()
+    {
+        try
+        {
+            var response = await _httpClient.GetAsync("http://localhost:7019/api/Auth/test");
+            return response.IsSuccessStatusCode;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

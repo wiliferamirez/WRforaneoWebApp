@@ -28,48 +28,58 @@
                        HorizontalOptions="Center"/>
 
                 <Entry x:Name="CedulaEntry"
+                       TextColor="Black"
                        Placeholder="Cedula"
                        Margin="10, 50, 10, 10"
                        VerticalOptions="Center"/>
 
                 <Entry x:Name="NameEntry"
+                       TextColor="Black"
                        Placeholder="Nombre"
                       Margin="10, 5, 10, 10"
                       VerticalOptions="Center"/>
 
                 <Entry x:Name="LastNameEntry"
+                       TextColor="Black"
                        Placeholder="Apellido"
                       Margin="10, 5, 10, 10"
                       VerticalOptions="Center"/>
 
                 <Entry x:Name="EmailEntry"
+                       TextColor="Black"
                        Placeholder="Email Udla"
                       Margin="10, 5, 10, 10"
                       VerticalOptions="Center"/>
 
                 <Entry x:Name="ProvinceEntry"
+                       TextColor="Black"
                        Placeholder="Provincia"
                       Margin="10, 5, 10, 10"
                       VerticalOptions="Center"/>
 
                 <Entry x:Name="ProgramEntry"
+                       TextColor="Black"
                        Placeholder="Carrera"
                       Margin="10, 5, 10, 10"
                       VerticalOptions="Center"/>
 
                 <DatePicker x:Name="BirthdayPickerRegister"
+                            TextColor="Black"
                             Margin="10, 5, 10, 10"/>
 
-                <Entry Placeholder="Password"
-                       IsPassword="True"
-                      Margin="10, 5, 10, 10"
-                      VerticalOptions="Center"/>
+                <Entry  x:Name="PasswordEntry"
+                        TextColor="Black"
+                        Placeholder="Password"
+                        IsPassword="True"
+                        Margin="10, 5, 10, 10"
+                        VerticalOptions="Center"/>
 
                 <Button Text="Register" 
                         BackgroundColor="#373737"
                         Margin="10, 5, 10, 10"
                         HeightRequest="60"
-                        TextColor="white"/>
+                        TextColor="white"
+                        Clicked="OnRegisterClicked"/>
 
             </VerticalStackLayout>
         </Grid>

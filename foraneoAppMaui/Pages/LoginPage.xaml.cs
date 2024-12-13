@@ -16,31 +16,32 @@ public partial class LoginPage : ContentPage
 		_authService = authService;
 	}
 
-	private async void OnLoinClicked(object sender, EventArgs e)
-	{
-		string emailLogin = EmailEntryLogin.Text;
-		string password = PasswordEntryLogin.Text;
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        string email = EmailEntryLogin.Text;
+        string password = PasswordEntryLogin.Text;
 
-		var loginRequest = new LoginRequest { Email = emailLogin, Password = password };
+        var loginRequest = new LoginRequest
+        {
+            Email = email,
+            Password = password
+        };
 
-		var (success, message, userId) = await _authService.LoginUserAsync(loginRequest);
+        var (success, message, userId) = await _authService.LoginUserAsync(loginRequest);
 
         if (success)
         {
-			await DisplayAlert("Succesfully Login", "", "OK");
-		}
-		else
-		{
-			await DisplayAlert("Login Failed", "Try Again", "OK");
-		}
-
+            await DisplayAlert("Login successfull.", message, "Ok");
+        }
+        else
+        {
+            // Show the error message
+            await DisplayAlert("Login Failed", message, "OK");
+        }
     }
-	private async void OnRegisterClicked(object sender, EventArgs e)
-	{
-		await Navigation.PushAsync(new RegisterPage());
-	}
 
-
-
-
+    private async void OnRegisterClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new RegisterPage(_authService));
+    }
 }

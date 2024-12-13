@@ -7,7 +7,17 @@ namespace foraneoAppMaui
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage(new AuthService(new HttpClient())));
+            //MainPage = new NavigationPage(new LoginPage(new AuthService(new HttpClient())));
+        }
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            var window = new Window();
+            window.MaximumHeight = 850;
+            window.MaximumWidth = 375;
+            window.MinimumHeight = 850;
+            window.MinimumWidth = 375;
+            window.Page = new NavigationPage(new LoginPage(new AuthService(new HttpClient())));
+            return window;
         }
     }
 }

@@ -74,6 +74,12 @@ namespace foraneoAppAPI.Controllers
             return Ok(new { Message = "Login successful", UserId = user.Id, Email = user.Email });
         }
 
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            return Ok(new { Message = "API is working!" });
+        }
+
         public class LoginRequest
         {
             [Required]
